@@ -1,4 +1,4 @@
-const fs = requires("fs");
+const fs = require("fs");
 
 var agent = {};
 
