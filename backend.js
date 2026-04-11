@@ -1,8 +1,10 @@
+const fs = requires("fs");
+
 var agent = {};
 
-function makeAgent(agent_id){
-    if (!(agent_id in agent)){
-        agent[agent_id] = {
+function makeAgent(agentId){
+    if (!(agentId in agent)){
+        agent[agentId] = {
             High: {Count: 0, Events:[]},
             Medium: {Count: 0, Events:[]},
             Low: {Count: 0, Events:[]}
@@ -10,35 +12,40 @@ function makeAgent(agent_id){
     }
 }
 
-function parseAgent(chat_json){
-    const json = chat_json.parse;
-    const agent_id = json.agent_id;
-    if (!(agent_id in agent)) {
-        makeAgent(agent_id);
+function parseAgent(chatJson){
+    const agentId = chatJson.agentId;
+    if (!(agentId in agent)) {
+        makeAgent(agentId);
     }
 
-    const eventSeverity = json.severity;
+    const eventSeverity = chatJson.severity;
     let eventLevel = {};
     if (eventSeverity == "High") {
-        eventLevel = agent[agent_id][High];
+        eventLevel = agent[agentId][High];
     }
     if (eventSeverity == "Medium") {
-        eventLevel = agent[agent_id][Medium];
+        eventLevel = agent[agentId][Medium];
     }
     if (eventSeverity == "Low") {
-        eventLevel = agent[agent_id][Low];
+        eventLevel = agent[agentId][Low];
     }
     let count = eventLevel[Count]++;
-    eventLevel[Events].append(json);
+    eventLevel[Events].append(chatJson);
 }
 
-function parseJson(){
-    return;
+function parseJson(fileName){
+    const lines = fs.readFileSync(fileName, "utf8").split("\n")
+
+    lines.forEach(line => {
+        if (!line.trim()) return;
+        const json = JSON.parse(line);
+        parseAgent(json);
+    });
 }
 
-function getAgent(agent_id){
-    if (agent_id in agent) {
-        return agent[agent_id];
+function getAgent(agentId){
+    if (agentId in agent) {
+        return agent[agentId];
     }
     return null;
 }
