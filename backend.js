@@ -49,3 +49,14 @@ function getAgent(agentId){
     }
     return null;
 }
+
+async function parseData() {
+    try {
+        parseJson("inhibitor_events.jsonl");
+    }
+    catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+parseData();
