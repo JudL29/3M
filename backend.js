@@ -50,6 +50,10 @@ function getAgent(agentId){
     return null;
 }
 
+function getExistingId(){
+    return agent.keys();
+}
+
 async function parseData() {
     try {
         parseJson("inhibitor_events.jsonl");
