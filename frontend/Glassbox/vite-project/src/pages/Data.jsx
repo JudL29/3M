@@ -1,23 +1,15 @@
 import React from 'react'
-import { userID } from './Login'
-
+import AgentDropdown from '../AgentDropdown'
 
 
 const Data = () => {
-    if(fetch(`http://localhost:3001/${userID}`)){
-    
-    <div className='min-h-screen'>
-        Data
-    </div>
-    console.log(userID);
-}
-else
-{
-    <div className='min-h-screen'>
-        Error Finding User
-    </div>
-}
- 
+    return (
+        <div className='min-h-screen bg-primary' grid place-items-center>
+        <AgentDropdown name={"finance-agent-alpha"} id={"finance-agent-alpha"}/>
+        <AgentDropdown name={"privacy-agent-beta"} id={"privacy-agent-beta"}/>
+        <AgentDropdown name={"ops-agent-gamma"} id={"ops-agent-gamma"}/>
+        </div>
+    )
 }
 
-export default Data
+export default Data;
