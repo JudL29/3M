@@ -50,7 +50,7 @@ function getAgent(agentId){
     return null;
 }
 
-async function parseData() {
+function parseData() {
     try {
         parseJson("inhibitor_events.jsonl");
     }
@@ -59,7 +59,7 @@ async function parseData() {
     }
 }
 
-parseData();
+module.exports = {parseData, getAgent}
 /*
 console.log(Object.keys(agent));
 
