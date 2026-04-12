@@ -13,7 +13,7 @@ function makeAgent(agentId){
 }
 
 function parseAgent(chatJson){
-    const agentId = chatJson.agentId;
+    const agentId = chatJson.agent_id;
     if (!(agentId in agent)) {
         makeAgent(agentId);
     }
@@ -29,8 +29,8 @@ function parseAgent(chatJson){
     if (eventSeverity == "low") {
         eventLevel = agent[agentId].low;
     }
-    let count = eventLevel[count]++;
-    eventLevel[events].append(chatJson);
+    eventLevel["count"]++;
+    eventLevel["events"].push(chatJson);
 }
 
 function parseJson(fileName){
@@ -60,3 +60,5 @@ async function parseData() {
 }
 
 parseData();
+
+console.log(Object.keys(agent));
