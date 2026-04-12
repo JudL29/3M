@@ -1,7 +1,7 @@
 import CreateDropdown from "./CreateDropdown"
 import { useState, useEffect } from "react";
 
-const FaqSetup = (props) => {
+const AgentDropdown = (props) => {
     const [agent, setAgent] = useState(null);
 
     useEffect(() => {
