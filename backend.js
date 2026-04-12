@@ -62,3 +62,18 @@ async function parseData() {
 parseData();
 
 console.log(Object.keys(agent));
+
+if (agent["finance-agent-alpha"]["high"]["count"] == 1 && agent["finance-agent-alpha"]["medium"]["count"] == 0 && agent["finance-agent-alpha"]["low"]["count"] == 0) 
+{
+    console.log("Test passed!");
+}
+
+if (agent["privacy-agent-beta"]["high"]["count"] == 1 && agent["privacy-agent-beta"]["medium"]["count"] == 0 && agent["privacy-agent-beta"]["low"]["count"] == 0) 
+{
+    console.log("Test passed!");
+}
+
+if (agent["ops-agent-gamma"]["high"]["count"] == 0 && agent["ops-agent-gamma"]["medium"]["count"] == 1 && agent["ops-agent-gamma"]["low"]["count"] == 0)
+{
+    console.log("Test passed!");
+}
