@@ -10,7 +10,9 @@ function makeAgent(agentId){
             medium: {count: 0, events:[]},
             low: {count: 0, events:[]}
         }
+        return 0;
     }
+    return -1;
 }
 
 function parseAgent(chatJson){
@@ -30,8 +32,10 @@ function parseAgent(chatJson){
     if (eventSeverity == "low") {
         eventLevel = agent[agentId].low;
     }
+    else return -1;
     eventLevel["count"]++;
     eventLevel["events"].push(chatJson);
+    return 0;
 }
 
 function parseJson(fileName){
@@ -54,9 +58,11 @@ function getAgent(agentId){
 function parseData() {
     try {
         parseJson(path.join(__dirname, "inhibitor_events.jsonl"));
+        return 0;
     }
     catch (error) {
         console.error('Error:', error);
+        return -1;
     }
 }
 
