@@ -27,10 +27,10 @@ function parseAgent(chatJson){
     if (eventSeverity == "high") {
         eventLevel = agent[agentId].high;
     }
-    if (eventSeverity == "medium") {
+    else if (eventSeverity == "medium") {
         eventLevel = agent[agentId].medium;
     }
-    if (eventSeverity == "low") {
+    else if (eventSeverity == "low") {
         eventLevel = agent[agentId].low;
     }
     else {

@@ -4,16 +4,23 @@
 import { useState } from "react";
 
 const CreateDropdown = (props) => {
-    const section = props.sections;
+   const { heading, body } = props.sections;
     const [isActive, setActive] = useState(false)
 
     return (
         <>
-            <button className={isActive ? "open" : "question"} onClick={() => setActive(!isActive)}>
-                {section.heading}
+            <button className={isActive ? "open" : "question"}
+                    onClick={() => setActive(!isActive)}>
+                {heading}
             </button>
             {isActive && <div className="answer">
-                <p>{section.body}</p>
+                {body.length === 0 ? (
+                    <p>No events.</p>
+                ) : (
+                    body.map((event, i) => (
+                        <pre key={i}>{JSON.stringify(event, null, 2)}</pre>
+                    ))
+                )}
             </div>}
         </>
     )
