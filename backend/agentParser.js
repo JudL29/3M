@@ -12,6 +12,7 @@ function makeAgent(agentId){
         }
         return 0;
     }
+    console.log("Agent already exist:", agentId);
     return -1;
 }
 
@@ -32,7 +33,10 @@ function parseAgent(chatJson){
     if (eventSeverity == "low") {
         eventLevel = agent[agentId].low;
     }
-    else return -1;
+    else {
+        console.log("Severity not recognized:", eventSeverity);
+        return -1;
+    }
     eventLevel["count"]++;
     eventLevel["events"].push(chatJson);
     return 0;
