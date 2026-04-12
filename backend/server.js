@@ -12,6 +12,6 @@ app.get("/api/agents/:id", (req, res) => {
     res.json(result);
 });
 
-parseData()
+parseData();
 
 app.listen(3001);
