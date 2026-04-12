@@ -1,10 +1,22 @@
 import React from 'react'
-import { recValue } from './Login'
+import { userID } from './Login'
+
 
 
 const Data = () => {
+    if(fetch(`http://localhost:3001/${userID}`)){
     
-    <div>Data</div>
+    <div className='min-h-screen'>
+        Data
+    </div>
+    console.log(userID);
+}
+else
+{
+    <div className='min-h-screen'>
+        Error Finding User
+    </div>
+}
  
 }
 

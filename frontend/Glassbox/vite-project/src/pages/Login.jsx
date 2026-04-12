@@ -1,13 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 
 
 
-const recValue = "ops-agent-gamma";
 
+let userID;
 const Login = () => {
-    const [inputValue, recValue] = useState("");
+    const [inputValue, setRecValue] = useState("");
+    const handleChange = (e) => {
+        setRecValue(e.target.value);
+    }
   return (
     
     <div className='min-h-screen grid place-items-center h-screen'>
@@ -15,7 +18,8 @@ const Login = () => {
             <legend className="fieldset-legend">Login</legend>
 
                 <label className="label">Enter UserId</label>
-                <input type="text" className="input" required placeholder="UserId" value={inputValue} onChange={(e) => recValue(e.target.value)}/>
+                <input type="text" className="input" required placeholder="UserId" value={inputValue} onChange={handleChange}/>
+              
 
                 <Link to={"/Data"} className="btn btn-primary mt-4">
                 <spam>Get Data</spam>
@@ -24,9 +28,12 @@ const Login = () => {
    
         
 </div>
+  
+
   )
+   userID = useContext(inputValue);
 }
 
 
 export default Login
-export {recValue};
+export { userID };
