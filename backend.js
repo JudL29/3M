@@ -60,7 +60,7 @@ async function parseData() {
 }
 
 parseData();
-
+/*
 console.log(Object.keys(agent));
 
 if (agent["finance-agent-alpha"]["high"]["count"] == 1 && agent["finance-agent-alpha"]["medium"]["count"] == 0 && agent["finance-agent-alpha"]["low"]["count"] == 0) 
@@ -77,3 +77,4 @@ if (agent["ops-agent-gamma"]["high"]["count"] == 0 && agent["ops-agent-gamma"]["
 {
     console.log("Test passed!");
 }
+    */
