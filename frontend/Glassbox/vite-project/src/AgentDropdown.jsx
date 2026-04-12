@@ -28,4 +28,4 @@ const FaqSetup = (props) => {
     )
 }
 
-export default FaqSetup;
+export default AgentDropdown;
