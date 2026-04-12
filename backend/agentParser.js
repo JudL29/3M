@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 
 var agent = {};
 
@@ -52,7 +53,7 @@ function getAgent(agentId){
 
 function parseData() {
     try {
-        parseJson("inhibitor_events.jsonl");
+        parseJson(path.join(__dirname, "inhibitor_events.jsonl"));
     }
     catch (error) {
         console.error('Error:', error);
