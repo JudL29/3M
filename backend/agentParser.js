@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 
 var agent = {};
 
@@ -50,16 +51,16 @@ function getAgent(agentId){
     return null;
 }
 
-async function parseData() {
+function parseData() {
     try {
-        parseJson("inhibitor_events.jsonl");
+        parseJson(path.join(__dirname, "inhibitor_events.jsonl"));
     }
     catch (error) {
         console.error('Error:', error);
     }
 }
 
-parseData();
+module.exports = {parseData, getAgent}
 /*
 console.log(Object.keys(agent));
 
